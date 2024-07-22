@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="container">
+  <div class="left">
+    <div class="details">
+      <div class="planet">
+        <img src="/assets/starWarLogo.PNG">
+      </div>
+      <span>Name: {{selectedCharacterData?.name}}</span>
+      <span>SkywalkerBorn: {{selectedCharacterData?.birth_year}}</span>
+      <span>Gender: {{selectedCharacterData?.gender}}</span>
+      <span>Height: {{selectedCharacterData?.height}}cm</span>
+      <span>Weight: {{selectedCharacterData?.mass}} Kg</span>
+      <span>Created at: {{selectedCharacterData?.created}}</span>
+      <span>Edited at: {{selectedCharacterData?.edited}}</span>
+      <span>Hair color: {{selectedCharacterData?.hair_color}}</span>
+      <span>Eye color: {{selectedCharacterData?.eye_color}}</span>
+      <span>Skin color: {{selectedCharacterData?.skin_color}}</span>
+
+    </div>
+    <div class="speciesName">
+      <h6>Planet Name: {{selectedPlanetData}}</h6>
+      <h6>Species: {{characterSpecies}}</h6>
+    </div>
+
+  </div>
+  <div class="right">
+    <div class="title">FILMS</div>
+    <ul *ngFor="let data of characterMovies; let i= index" class="list">
+      <li>
+        <h5>Movie Details {{i+1}}</h5>
+      </li>
+      <li> Name : {{data.title}}</li>
+      <li> Episode : {{data.episode_id}}</li>
+      <li> Director : {{data.director}}</li>
+      <li> Producer : {{data.producer}}</li>
+      <li> Release Date : {{data.release_date}}</li>
+    </ul>
+    <div class="title">VEHICLES</div>
+    <ul *ngFor="let data of characterVehicles; let i = index" class="list">
+      <li> Name : {{data.name}}</li>
+      <li> Model : {{data.model}}</li>
+      <li> Capacity : {{data.cargo_capacity}}</li>
+      <li> Manufacturer : {{data.manufacturer}}</li>
+    </ul>
+    <ul *ngIf="characterVehicles.length == 0" class="list">
+      <li> No Data available</li>
+    </ul>
+    <div class="title">STARSHIPS</div>
+    <ul *ngFor="let data of characterStarships; let i = index" class="list">
+      <li> Name : {{data.name}}</li>
+      <li> Model : {{data.model}}</li>
+      <li> Manufacturer : {{data.manufacturer}}</li>
+      <li> Starship Class : {{data.starship_class}}</li>
+    </ul>
+    <ul *ngIf="characterStarships.length == 0" class="list">
+      <li> No Data available</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<!-- <div class="header">
+    <h1>STAR WARS</h1>
+    <div class="footer">
+      <p>THE SWAPI PROJECT</p>
+    </div>
+  </div> -->
+  
+  <app-header></app-header>
+
+  <div class="container">
+    <div class="filters">
+      <h2>Filters</h2>
+      <select>
+        <option value="">Movie Name</option>
+        <option *ngFor="let data of allMovies" value="{{data.title}}">{{data.title}}</option>
+      </select>
+      <select>
+        <option value="">Species</option>
+        <option *ngFor="let data of speciesData" value="{{data.name}}">{{data.name}}</option>
+      </select>
+      <select>
+        <option value="">Vehicle</option>
+        <option *ngFor="let data of allVehicles" value="{{data.name}}">{{data.name}}</option>
+      </select>
+      <select>
+        <option value="">Star Ships</option>
+        <option *ngFor="let data of allStarships" value="{{data.name}}">{{data.name}}</option>
+      </select>
+      <!-- <h2>Birth Year</h2> -->
+      <!-- <input type="checkbox" id="all" name="birth-year" value="all">
+      <label for="all">ALL</label><br>
+      <input type="checkbox" id="b8d20" name="birth-year" value="b8d20">
+      <label for="b8d20">B8D20</label><br> -->
+      <select>
+        <option value="">Birth Year</option>
+        <option value="">All</option>
+        <option *ngFor="let data of allBirthYears" value="{{data}}">{{data}}</option>
+      </select>
+      <button>SEARCH</button>
+    </div>
+  
+    <div class="search-results">
+      <h2>SEARCH RESULTS</h2>
+      <p>(By Default this table will have all data)</p>
+      <table>
+        <tr>
+          <th>SI No.</th>
+          <th>Character Name</th>
+          <th>Species</th>
+          <th>Birth Year</th>
+        </tr>
+        <tr (click)="openCharacter(character.url, character.species)" *ngFor="let character of allCharacterData; let i = index;">
+          <td>{{i+1}}</td>
+          <td> {{character.name}}</td>
+          <td>{{character.species}}</td>
+          <td>{{character.birth_year}}</td>
+        </tr>
+        
+      </table>
+      <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">></a>
+      </div>
+    </div>
+  </div>
+  
